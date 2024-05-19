@@ -4,24 +4,6 @@
         function Crear()
         {
             return '
-            <div>
-                <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary fixed-top">
-                  <div class="container-fluid">
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                      <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
-                        <a class="nav-link" href="#nosotros">Nosotros</a>
-                        <a class="nav-link" href="#servicios">Servicios</a>
-                      </div>
-                    </div>
-                <div class="pe-1 d-flex justify-content-end collapse navbar-collapse" id="navbarNavAltMarkup2">
-                  <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="login">Iniciar Sesión</a>
-                      </div>
-                    </div>
-                  </div>
-                </nav>
-            </div>
             
             <div class="contenedor" id="home" style="position: relative; width: 100%; height: 49vw; max-width: 100vw; max-height: 99.78vh; background-color: darkgrey;">
                 <img src="images/fondo.jpg" style="object-fit: cover; width: 100%; height: 100%;" alt="fondo">

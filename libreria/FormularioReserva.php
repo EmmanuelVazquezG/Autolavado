@@ -1,114 +1,99 @@
 <?php
-    class FormularioReserva implements IFormulario
+
+class FormularioReserva implements IFormulario
+{
+    function Crear()
     {
-        function Crear()
-        {
-            return '
-            <div class="container mt-5">
-                <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title text-center mb-4">Reservar Cita</h5>
-                                <form id="reservaForm">
-                                    <!-- Nombre del Cliente -->
-                                    <div class="mb-3">
-                                        <label for="nombreUsuario" class="form-label">Nombre del Cliente</label>
-                                        <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" placeholder="Ingrese su nombre">
-                                    </div>
-                                    <!-- Matrícula del Auto -->
-                                    <div class="mb-3">
-                                        <label for="matriculaAuto" class="form-label">Matrícula del Auto</label>
-                                        <input type="text" class="form-control" id="matriculaAuto" name="matriculaAuto" placeholder="Ingrese la matrícula del auto">
-                                    </div>
+        $v = new Vehiculos();
+        $resultados = array();
+        $resultados = $v->MostrarVehiculos('%');
 
-                                    <!-- Tarjeta Carro -->
-                                    <div id="tarjetaCarro" class="tarjeta" style="display:none;">
-                                        <img src="images/carro.png" class="d-block w-100" alt="Carro">
-                                        <div class="card-body">
-                                            <h5>Carro</h5>
-                                            <p>Sin añadidos</p>
-                                        </div>
-                                    </div>
+        $options = '';
+        foreach ($resultados as $vehiculo) {
+            $options .= '<option value="' . $vehiculo['id'] . '">' . $vehiculo['nombre'] . '</option>';
+        }
 
-                                    <!-- Tarjeta Camioneta -->
-                                    <div id="tarjetaCamioneta" class="tarjeta" style="display:none;">
-                                        <img src="images/camioneta.png" class="d-block w-100" alt="Camioneta">
-                                        <div class="card-body">
-                                            <h5>Camioneta</h5>
-                                            <p>
-                                                <label for="numeroPuertas" class="form-label">Número de Puertas</label>
-                                                <select class="form-control" id="numeroPuertas" name="numeroPuertas">
-                                                    <option value="2">2 puertas</option>
-                                                    <option value="4">4 puertas</option>
-                                                    <option value="5+">5 o más puertas</option>
-                                                </select>
-                                            </p>
-                                        </div>
-                                    </div>
+        return '
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center mb-4">Reservar Cita</h5>
+                            <form id="reservaForm" action="reserva">
+                                <!-- Nombre del Cliente -->
+                                <div class="mb-3">
+                                    <label for="nombreUsuario" class="form-label">Nombre del Cliente</label>
+                                    <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" placeholder="Ingrese su nombre">
+                                </div>
+                                <!-- Matrícula del Auto -->
+                                <div class="mb-3">
+                                    <label for="matriculaAuto" class="form-label">Matrícula del Auto</label>
+                                    <input type="text" class="form-control" id="matriculaAuto" name="matriculaAuto" placeholder="Ingrese la matrícula del auto">
+                                </div>
 
-                                    <!-- Tarjeta Tracto Camión -->
-                                    <div id="tarjetaTractoCamion" class="tarjeta" style="display:none;">
-                                        <img src="images/camion.jpg" class="d-block w-100" alt="Tracto Camión">
-                                        <div class="card-body">
-                                            <h5>Tracto Camión</h5>
-                                            <p>
-                                                <label for="tamanioTracto" class="form-label">Tamaño del Tracto Camión</label>
-                                                <select class="form-control" id="tamanioTracto" name="tamanioTracto">
-                                                    <option selected disabled>Seleccione el tamaño del tracto camión</option>
-                                                    <option value="pequeno">Pequeño</option>
-                                                    <option value="mediano">Mediano</option>
-                                                    <option value="grande">Grande</option>
-                                                </select>
-                                            </p>
-                                        </div>
-                                    </div>
+                                <!-- Tipo de vehiculo -->
+                                <div class="mb-3">
+                                    <label for="vehiculos" class="form-label">Tipo de Vehiculo</label>
+                                    <select class="form-control" id="vehiculos" name="vehiculos">
+                                        <option value="" disabled selected>-- Selecciona el vehiculo --</option>
+                                        ' . $options . '
+                                    </select>
+                                </div>
 
-                                    <!-- Botones de Control -->
-                                    <div class="text-center mt-3">
-                                        <button class="btn btn-primary" id="btnCarro">Carro</button>
-                                        <button class="btn btn-primary" id="btnCamioneta">Camioneta</button>
-                                        <button class="btn btn-primary" id="btnTractoCamion">Tracto Camión</button>
-                                    </div>
+                                <!-- Cantidad -->
+                                <div class="mb-3">
+                                    <label for="Cantidad" class="form-label">Cantidad</label>
+                                    <input type="number" class="form-control" id="Cantidad" name="Cantidad" placeholder="Ingrese la cantidad" step="0.1">
+                                </div>
+                                
+                                <!-- Fecha -->
+                                <div class="mb-3">
+                                    <label class="texte" for="fecha">Fecha</label><br>
+                                    <input class="inpute" type="date" id="fecha" name="fecha"><br>
+                                </div>
 
-                                    <!-- Botón de Reservar -->
-                                    <div class="text-center mt-3">
-                                        <button type="submit" class="btn btn-primary">Reservar</button>
-                                    </div>
-                                </form>
-                            </div>
+
+
+                                <!-- Botón de Reservar -->
+                                <div class="text-center mt-3">
+                                    <button type="submit" class="btn btn-primary">Reservar</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                    document.getElementById("btnCarro").addEventListener("click", function() {
-                        mostrarTarjeta("tarjetaCarro");
-                    });
-
-                    document.getElementById("btnCamioneta").addEventListener("click", function() {
-                        mostrarTarjeta("tarjetaCamioneta");
-                    });
-
-                    document.getElementById("btnTractoCamion").addEventListener("click", function() {
-                        mostrarTarjeta("tarjetaTractoCamion");
-                    });
-
-                    function mostrarTarjeta(idTarjeta) {
-                        var tarjetas = document.getElementsByClassName("tarjeta");
-                        for (var i = 0; i < tarjetas.length; i++) {
-                            tarjetas[i].style.display = "none";
-                        }
-                        document.getElementById(idTarjeta).style.display = "block";
-                    }
-
-                    document.getElementById("reservaForm").addEventListener("submit", function(event) {
-                        event.preventDefault(); 
-                    });
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                document.getElementById("btnCarro").addEventListener("click", function() {
+                    mostrarTarjeta("tarjetaCarro");
                 });
-            </script>
-            ';
-        }
+
+                document.getElementById("btnCamioneta").addEventListener("click", function() {
+                    mostrarTarjeta("tarjetaCamioneta");
+                });
+
+                document.getElementById("btnTractoCamion").addEventListener("click", function() {
+                    mostrarTarjeta("tarjetaTractoCamion");
+                });
+
+                function mostrarTarjeta(idTarjeta) {
+                    var tarjetas = document.getElementsByClassName("tarjeta");
+                    for (var i = 0; i < tarjetas.length; i++) {
+                        tarjetas[i].style.display = "none";
+                    }
+                    document.getElementById(idTarjeta).style.display = "block";
+                }
+
+                document.getElementById("reservaForm").addEventListener("submit", function(event) {
+                    event.preventDefault();
+                });
+            });
+        </script>
+        ';
     }
+}
+?>

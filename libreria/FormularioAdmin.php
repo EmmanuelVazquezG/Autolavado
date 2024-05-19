@@ -1,18 +1,19 @@
 <?php
+require 'libreria/Varios.php';
     class FormularioAdmin implements IFormulario
     {
         function Crear()
         {
-            // Datos de ejemplo de empleados (vacío)
-        $empleados = [];
-
+            $me = new Esclavos();
+            $empleados = array();
+            $empleados = $me->MostrarEmpleado('%');
         // Generar filas de la tabla con un foreach
         $filasTabla = '';
         foreach ($empleados as $empleado) {
             $filasTabla .= '
                 <tr>
-                    <td>'.$empleado['usuario'].'</td>
-                    <td>'.$empleado['contraseña'].'</td>
+                    <td>'.$empleado['nombre'].'</td>
+                    <td>'.$empleado['contra'].'</td>
                     <td>'.$empleado['permisos'].'</td>
                 </tr>
             ';
@@ -60,7 +61,7 @@
 
         // Concatenar todas las secciones para formar el HTML completo
         $htmlCompleto =  $encabezado . $tablaEmpleados;
-
         return $htmlCompleto;
         }
+        
     }

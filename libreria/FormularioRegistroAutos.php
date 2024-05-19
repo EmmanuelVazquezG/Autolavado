@@ -10,7 +10,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title text-center mb-4">Registro de Auto</h5>
-                                <form action="process_auto_registration.php" method="POST">
+                                <form action="registroautos" method="POST">
                                     <div class="mb-3">
                                         <label for="autoNombre" class="form-label">Nombre del Auto</label>
                                         <input type="text" class="form-control" id="autoNombre" name="autoNombre" required>

@@ -5,5 +5,5 @@
 	require 'libreria/FormularioHome.php';
 
 	$p = array();
-	View('home',$p);
+	ViewH('home',$p);
  ?>

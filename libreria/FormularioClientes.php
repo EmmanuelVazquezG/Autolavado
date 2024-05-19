@@ -3,22 +3,10 @@
     {
         function Crear()
         {
+            $r = new Clientes();
             // Datos de ejemplo de reservas (podrían ser obtenidos de una base de datos u otro origen)
-            $reservas = [
-                [
-                    'cliente' => 'Juan Pérez',
-                    'vehiculo' => 'Toyota Corolla',
-                    'fecha' => '2024-04-10',
-                    'estado' => 'Pendiente',
-                ],
-                [
-                    'cliente' => 'María García',
-                    'vehiculo' => 'Honda Civic',
-                    'fecha' => '2024-04-12',
-                    'estado' => 'Confirmada',
-                ],
-            ];
-
+            $reservas = array();
+            $reservas = $r->MostrarReserva('Aceptado');
             // Estructura de la tabla de reservas
             $tablaHTML = '<table class="table">
                             <thead>
@@ -35,10 +23,15 @@
             foreach ($reservas as $reserva) {
                 $tablaHTML .= '<tr>
                                     <td>' . $reserva['cliente'] . '</td>
-                                    <td>' . $reserva['vehiculo'] . '</td>
+                                    <td>' . $reserva['nombre_vehiculo'] . '</td>
                                     <td>' . $reserva['fecha'] . '</td>
                                     <td>' . $reserva['estado'] . '</td>
-                                    <td><button class="btn btn-danger">Eliminar</button></td>
+                                    <td>
+                                        <form action="clientes" method="post">
+                                            <input type="hidden" name="cliente" value="'.$reserva['cliente'].'">
+                                            <button class="btn btn-danger">Eliminar</button>
+                                        </form>
+                                    </td>
                                 </tr>';
             }
 

@@ -3,18 +3,9 @@
     {
         function Crear()
         {
-            $autos = [
-                    [
-                        'nombre' => 'Toyota Corolla',
-                        'forma_cobro' => 'Por día',
-                        'valor' => '$50',
-                    ],
-                    [
-                        'nombre' => 'Honda Civic',
-                        'forma_cobro' => 'Por hora',
-                        'valor' => '$10',
-                    ]
-                ];
+            $a = new Vehiculos();
+            $autos = array();
+            $autos = $a->MostrarVehiculos('%');
 
                 $tablaHTML = '<table class="table">
                                 <thead>
@@ -29,7 +20,7 @@
                 foreach ($autos as $auto) {
                     $tablaHTML .= '<tr>
                                         <td>' . $auto['nombre'] . '</td>
-                                        <td>' . $auto['forma_cobro'] . '</td>
+                                        <td>' . $auto['formacobro'] . '</td>
                                         <td>' . $auto['valor'] . '</td>
                                     </tr>';
                 }
