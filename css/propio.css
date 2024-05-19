@@ -1,0 +1,153 @@
+/* Estilos generales */
+/* Estilos globales */
+body {
+    background-color: #212529;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor principal */
+.container2 {
+    background-color: #343a40;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 500px;
+    margin: 50px auto;
+}
+
+.table th,
+.table td {
+    color: #ffffff; /* Texto blanco */
+}
+
+/* Estilos de títulos */
+h5, .card-title, .form-label {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Formulario y botones */
+.form-label, .form-control, .form-select, .btn-primary, .btn-accept {
+    background-color: #454d55;
+    color: #ffffff;
+    border: none;
+}
+
+.form-control,
+.form-select {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: #454d55;
+    color: #ffffff;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+}
+
+/* Botones principales */
+.btn-primary, .btn-primary:hover {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-accept:hover {
+    background-color: #0056b3;
+}
+
+/* Tarjetas */
+.card, .card-container {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+/* Posicionamiento */
+.contenedor {
+    position: relative;
+    width: 100%;
+    height: 56.25vw;
+    max-width: 100vw;
+    max-height: 99.78vh;
+    background-color: lightgrey;
+}
+
+.bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+}
+
+/* Alineación */
+.centrar {
+    text-align: center;
+    align-content: center;
+}
+
+.izquierda {
+    text-align: left;
+    align-content: start;
+}
+
+.derecha {
+    text-align: right;
+    align-content: end;
+}
+
+.img-medium {
+    width: 70%;
+    height: auto;
+}
+
+.btnAgendar {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.btnAgendar:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
