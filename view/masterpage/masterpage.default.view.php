@@ -32,6 +32,12 @@
                     </div>
                 </div>
             </nav>
+            <nav class="navbar navbar-expand-lg bg-dark">
+                <div class="container">
+                        <button class="btn btn-danger ms-auto"  >Cerrar Sesión</button>
+                    </div>
+                </div>
+            </nav>
 </head>
 <body>
 
